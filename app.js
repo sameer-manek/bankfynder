@@ -65,4 +65,8 @@ app.get("/branches/i/:bank/:city", (req, res) => {
 	})
 })
 
+app.get("*", (req, res) => {
+ 	return res.sendFile(path.join(__dirname, "views", "404.html"))
+})
+
 app.listen(PORT, _ => console.log("the server is running on port " + PORT))
