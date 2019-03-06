@@ -1,6 +1,8 @@
 const express = require('express')
 const Sequelize = require('sequelize')
 
+const path = require('path')
+
 const app = express()
 const sequelize = new Sequelize('postgres://ftycsmyztfxhfv:934974f303f230e8267bbbefe59e87f0222ed5d772836a676a1edf8c038ea35a@ec2-54-83-44-4.compute-1.amazonaws.com:5432/d25d3sh7bvjnln');
 
@@ -16,13 +18,20 @@ sequelize.authenticate()
 	.catch(err => console.log("Unable to connect: ", err))
 
 app.get("/", (req, res) => {
-	return res.send("hello world")
+	return res.sendFile(path.join(__dirname, "views", "index.html"))
 })
 
 app.get("/branch/:ifsc", (req, res) => {
 	let query = "SELECT * FROM bank_branches WHERE ifsc = '" + req.params.ifsc + "' LIMIT 1"
 	sequelize.query(query, { type: queryTypes.select }).then(details => {
 		return res.json(details[0])
+	})
+})
+
+app.get("/banks", (req, res) => {
+	let query = "SELECT * FROM banks"
+	sequelize.query(query, { type: queryTypes.select }).then(details => {
+		return res.json(details)
 	})
 })
 

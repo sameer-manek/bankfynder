@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>Bank Fynder API</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
+		<style>
+			.usage li {
+				margin: 8px 0;
+				list-style: circle;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="contain">
+			<div class="hero is-info">
+				<div class="hero-body has-text-centered">
+					<h1 class="title">Welcome to BankFynder API</h1>
+					<p>Easy query and find bank details</p>
+				</div>
+			</div>
+			<br>
+			<div class="container">
+				<div class="columns">
+					<div class="column is-one-quarter">
+						<aside class="menu">
+							<p class="menu-label">
+								General
+							</p>
+							<ul class="menu-li">
+								<li><a href="#intro">Introduction</a></li>
+								<li><a href="#usage">Usage</a></li>
+							</ul>
+						</aside>
+					</div>
+
+					<div class="column is-three-quarters">
+						<h3 id="intro" class="subtitle"><strong>Introduction to API</strong></h3>
+						<p>This is a simple REST API with just 5 main endpoints. It lets you search branch and it's details of that branch which belongs to bank registered in India. We have accumulated records from 170 banks in total and about 10,000 branches in total. All this information is available with easy querying.</p>
+						<br>
+						<h3 id="usage" class="subtitle"><strong>Usage</strong></h3>
+						<p>Here are the 5 endpoints of the API:</p>
+						<ul class="usage">
+							<li>
+								<p><code class="code">/branch/:$IFSC</code>: replace the <code class="code">:$IFSC</code> with your IFSC code and you will get address, city, district and other relevant details about the branch</p>
+							</li>
+							<li>
+								<p><code class="code">/branches?bank=:$BANK_ID&city=:$CITY_NAME</code>: replace the <code class="code">:$BANK_ID</code> and <code class="code">:$CITY_NAME</code>  with Bank ID (make a request to <code class="code">/banks</code> endpoint to know id) and City Name to get address, city, district and other relevant details about all the branches which belong to that bank in that city! <i class="tag is-warning">You can use spaces in variables, test it on firefox!</i></p>
+							</li>
+							<li>
+								<p><code class="code">/branches?bank=:$BANK_NAME&city=:$CITY_NAME</code>: replace the <code class="code">:$BANK_NAME</code> and <code class="code">:$CITY_NAME</code>  with Bank Name (make a request to <code class="code">/banks</code> endpoint to know name) and City Name to get address, city, district and other relevant details about all the branches which belong to that bank in that city! <i class="tag is-warning">You can use spaces in variables, test it on firefox!</i></p>
+							</li>
+							<li>
+								<p><code class="code">/branches?bank=:$BANK_ID&city=:$CITY_NAME</code>: replace the <code class="code">:$BANK_ID</code> and <code class="code">:$CITY_NAME</code>  with Bank ID (make a request to <code class="code">/banks</code> endpoint to know id) and City Name to get address, city, district and other relevant details about all the branches which belong to that bank in that city!</p>
+							</li>
+							<li>
+								<p><code class="code">/branches?bank=:$BANK_NAME&city=:$CITY_NAME</code>: replace the <code class="code">:$BANK_NAME</code> and <code class="code">:$CITY_NAME</code>  with Bank Name (make a request to <code class="code">/banks</code> endpoint to know name) and City Name to get address, city, district and other relevant details about all the branches which belong to that bank in that city!</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
