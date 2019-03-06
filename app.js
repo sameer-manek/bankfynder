@@ -42,7 +42,7 @@ app.get("/branches", (req, res) => {
 	})
 })
 
-app.get("/branches", (req, res) => {
+app.get("/branches/i", (req, res) => {
 	let query = "SELECT * FROM bank_branches WHERE bank_id = '" + req.query.bank + "' AND city = '" + req.query.city + "'"
 	sequelize.query(query, { type: queryTypes.select }).then(details => {
 		return res.json(details)
@@ -57,7 +57,7 @@ app.get("/branches/:bank/:city", (req, res) => {
 	})
 })
 
-app.get("/branches/:bank/:city", (req, res) => {
+app.get("/branches/i/:bank/:city", (req, res) => {
  	let query = "SELECT * FROM bank_branches WHERE bank_id = '" + req.params.bank + "' AND city = '" + req.params.city + "'"
  	console.log(query)
 	sequelize.query(query, { type: queryTypes.select }).then(details => {
