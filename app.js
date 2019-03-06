@@ -4,6 +4,8 @@ const Sequelize = require('sequelize')
 const app = express()
 const sequelize = new Sequelize('postgres://ftycsmyztfxhfv:934974f303f230e8267bbbefe59e87f0222ed5d772836a676a1edf8c038ea35a@ec2-54-83-44-4.compute-1.amazonaws.com:5432/d25d3sh7bvjnln');
 
+const PORT = process.env.PORT || 5000
+
 // queryTypes
 
 const queryTypes = {
@@ -54,4 +56,4 @@ app.get("/branches/:bank/:city", (req, res) => {
 	})
 })
 
-app.listen(4000, _ => console.log("the server is running on port 4000"))
+app.listen(PORT, _ => console.log("the server is running on port " + PORT))
